@@ -1,0 +1,4 @@
+Red|red.png
+Green|green.jpg
+Blue|blue.png
+Yellow|yellow.png
