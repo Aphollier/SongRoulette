@@ -3,6 +3,7 @@ import tkinter as tk
 from functools import partial
 from PIL import ImageTk, Image
 import random
+from time import perf_counter_ns
 
 songs = {}
 selectedSongs = {}
@@ -39,6 +40,11 @@ def songSelect(button, song):
 def clear_frame():
     for widgets in frame.winfo_children():
         widgets.destroy()
+
+def wait(delay):
+    target = perf_counter_ns() + delay
+    while perf_counter_ns() < target:
+        pass
 
 def selectionScreen():
     clear_frame()
@@ -107,7 +113,7 @@ def spinScreen():
             speed += -speed / 5000 + 0.7
         else:
             speed += -speed / 10000 + 0.1
-        window.after(1)
+        wait(1)
 
     songName.config(relief=tk.RIDGE)
     selectButton = tk.Button(frame, text="SELECT AGAIN!", font=("Impact", 30), fg="#ffffff", 
