@@ -3,11 +3,9 @@ import tkinter as tk
 from functools import partial
 from PIL import ImageTk, Image
 import random
-import time
 
 songs = {}
 selectedSongs = {}
-refreshSec = 0.001
 width = 1280
 
 path = str(pathlib.Path(__file__).parent.resolve()) + "\\Assets\\"
@@ -109,7 +107,7 @@ def spinScreen():
             speed += -speed / 5000 + 0.7
         else:
             speed += -speed / 10000 + 0.1
-        time.sleep(refreshSec)
+        window.after(1)
 
     songName.config(relief=tk.RIDGE)
     selectButton = tk.Button(frame, text="SELECT AGAIN!", font=("Impact", 30), fg="#ffffff", 
